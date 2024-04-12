@@ -3,7 +3,7 @@ import Watch from './components/watch'
 import { OrbitControls } from '@react-three/drei'
 import { Environment } from '@react-three/drei'
 //Theatre Imports
-import { ScrollControls,useScroll } from '@react-three/drei'
+import { ScrollControls,useScroll,Scroll} from '@react-three/drei'
 import {getProject,val} from '@theatre/core';
 import {
   SheetProvider, editable as e,
@@ -15,12 +15,21 @@ function App() {
   return (
     <>
     <Canvas gl={{preserveDrawingBuffer:true,phisicallyCorrectLight:true}}>
-    <SheetProvider sheet={sheet}>
 
       <ScrollControls pages={5}>
+      <SheetProvider sheet={sheet}>
+
+    
       <Scene />
-      </ScrollControls>
+      <Scroll html>
+          <div>
+            <h1>Here's our H1 Element</h1>
+          </div>
+      </Scroll>
       </SheetProvider>
+
+      </ScrollControls>
+      
 
     </Canvas>
     
